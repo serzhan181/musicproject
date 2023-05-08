@@ -2,7 +2,7 @@ import { PlaylistCard } from "@/components/playlist-card";
 import { sc } from "@/config/soundcloud";
 
 export default async function PlaylistPage() {
-  const playlists = await sc.playlists.searchV2({ q: "Dua lipa" });
+  const playlists = await sc.playlists.searchV2({ q: "" });
 
   return (
     <div className="flex flex-col gap-3">

@@ -35,12 +35,14 @@ export const SongCard = ({
   const isPlaying = useAppSelector((state) => state.player.isPlaying);
 
   return (
-    <Card>
+    <Card className="min-w-[312px]">
       <CardHeader>
         <CardTitle className="overflow-hidden text-ellipsis whitespace-nowrap">
           {title}
         </CardTitle>
-        <CardDescription>{authorName}</CardDescription>
+        <CardDescription className="overflow-hidden text-ellipsis whitespace-nowrap">
+          {authorName}
+        </CardDescription>
       </CardHeader>
       <CardContent className="relative p-2 group">
         {curSong?.id === id && isPlaying ? (
