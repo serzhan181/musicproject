@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
 import {
@@ -10,17 +8,17 @@ import {
   CardTitle,
 } from "./ui/card";
 import { PlayButton } from "./ui/play-button";
-import { useDispatch } from "react-redux";
-import { setIsPlaying, setSong } from "@/store/features/player-slice";
-import { useAppSelector } from "@/hooks/use-redux";
 import { PauseButton } from "./ui/pause-button";
+import { ControllersProps } from "./player/controllers";
 
-export interface SongCardProps {
+export interface SongCardProps
+  extends Pick<ControllersProps, "isPlaying" | "onPause" | "onPlay"> {
   title: string;
   authorName: string;
   thumbnailUrl: string;
-  songUrl: string;
   id: number;
+  curSongId: number;
+  onPlaySong: (id: number) => void;
 }
 
 export const SongCard = ({
@@ -28,12 +26,12 @@ export const SongCard = ({
   thumbnailUrl,
   title,
   id,
-  songUrl,
+  curSongId,
+  isPlaying,
+  onPause,
+  onPlay,
+  onPlaySong,
 }: SongCardProps) => {
-  const dispatch = useDispatch();
-  const curSong = useAppSelector((state) => state.player.curSong);
-  const isPlaying = useAppSelector((state) => state.player.isPlaying);
-
   return (
     <Card className="min-w-[312px]">
       <CardHeader>
@@ -45,26 +43,14 @@ export const SongCard = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="relative p-2 group">
-        {curSong?.id === id && isPlaying ? (
+        {curSongId === id && isPlaying ? (
           <PauseButton
             className="absolute z-30 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-            onClick={() => dispatch(setIsPlaying(false))}
+            onClick={onPause}
           />
         ) : (
           <PlayButton
-            onClick={() =>
-              curSong?.id !== id
-                ? dispatch(
-                    setSong({
-                      artwork_url: thumbnailUrl,
-                      id,
-                      title,
-                      username: authorName,
-                      songUrl,
-                    })
-                  )
-                : dispatch(setIsPlaying(true))
-            }
+            onClick={() => (curSongId !== id ? onPlaySong(id) : onPlay())}
             className="absolute z-30 transition-opacity -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 top-1/2 left-1/2"
           />
         )}
