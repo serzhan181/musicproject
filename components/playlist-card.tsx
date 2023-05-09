@@ -8,7 +8,7 @@ import { Copy, ScreenShare } from "lucide-react";
 import { SongCardProps } from "./song-card";
 import { SoundcloudTrackV2 } from "soundcloud.ts";
 
-interface PlaylistCardProps extends SongCardProps {
+interface PlaylistCardProps extends Partial<SongCardProps> {
   firstTrack: SoundcloudTrackV2;
   tracksCount: number;
 }
@@ -25,8 +25,8 @@ export const PlaylistCard = ({
       <div className="w-60 bg-background/50">
         <AspectRatio ratio={1}>
           <Image
-            src={thumbnailUrl}
-            alt={title}
+            src={thumbnailUrl || "/assets/agents/reyna.webp"}
+            alt={title || "Unknown playlist"}
             fill
             className="object-contain"
           />

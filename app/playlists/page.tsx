@@ -14,7 +14,6 @@ export default async function PlaylistPage() {
             p.artwork_url?.replace("large", "t500x500") ||
             "/assets/agents/viper.webp"
           }
-          songUrl={p.permalink_url}
           title={p.title}
           firstTrack={p.tracks[0]}
           tracksCount={p.track_count}
