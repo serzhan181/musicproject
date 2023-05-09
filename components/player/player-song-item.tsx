@@ -36,7 +36,7 @@ export const PlayerSongItem = ({
             alt="equalizer"
             width={20}
             height={20}
-            className="absolute z-30 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary top-1/2 left-1/2"
+            className="absolute z-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary top-1/2 left-1/2"
           />
         )}
         <AspectRatio ratio={1}>

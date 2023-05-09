@@ -86,12 +86,14 @@ export const Player = () => {
                 </div>
 
                 <div className="flex items-center justify-between grow">
+                  {/* ------ */}
                   <PlayerSongItem
                     image={curSong.artwork_url}
                     title={curSong.title}
                     username={curSong.username}
                   />
 
+                  {/* ------ */}
                   <PopoverPlaylist
                     curSong={curSong}
                     tracks={curPlaylist?.tracks || []}

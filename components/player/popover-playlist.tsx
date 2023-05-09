@@ -18,11 +18,11 @@ export const PopoverPlaylist = ({ tracks, curSong }: PopoverPlaylistProps) => {
         <ListVideo />
       </PopoverTrigger>
       <PopoverContent
-        className="p-0 rounded-sm w-96 min-h-[256px]  overflow-y-auto max-h-[520px]"
+        className="p-0 relative rounded-sm w-96 min-h-[256px]  overflow-y-auto max-h-[520px]"
         sideOffset={16}
         align="end"
       >
-        <div className="flex items-center w-full gap-2 p-2 border-b border-border">
+        <div className="sticky top-0 left-0 right-0 z-30 flex items-center w-full gap-2 p-2 border-b bg-background border-border">
           <div className="relative w-12 overflow-hidden border border-border">
             <Image
               src="/assets/svgs/equalizer.svg"
