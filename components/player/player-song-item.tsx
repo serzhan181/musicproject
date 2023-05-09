@@ -8,6 +8,7 @@ interface PlayerSongItemProps {
   username?: string;
   maxW?: number;
   active?: boolean;
+  disabled?: boolean;
   className?: string;
 }
 
@@ -17,6 +18,7 @@ export const PlayerSongItem = ({
   username,
   maxW = 130,
   active,
+  disabled,
   className,
 }: PlayerSongItemProps) => {
   return (
@@ -25,6 +27,7 @@ export const PlayerSongItem = ({
         "flex items-center w-full gap-2",
         {
           "bg-secondary": active,
+          "opacity-50 cursor-not-allowed": disabled,
         },
         className
       )}

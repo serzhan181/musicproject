@@ -51,17 +51,20 @@ export const PopoverPlaylist = ({ tracks, curSong }: PopoverPlaylistProps) => {
         </div>
 
         <div className="flex flex-col gap-3 py-2">
-          {tracks.map((t) => (
-            <PlayerSongItem
-              key={t.id}
-              image={t.artwork_url}
-              title={t.title}
-              username={t.user.username}
-              maxW={270}
-              active={curSong.id === t.id}
-              className="p-2"
-            />
-          ))}
+          {tracks.map((t) => {
+            return (
+              <PlayerSongItem
+                key={t.id}
+                image={t?.artwork_url || "/assets/agents/reyna.webp"}
+                title={t?.title || "Unknown"}
+                username={t?.user?.username || "Unknown"}
+                maxW={270}
+                active={curSong.id === t.id}
+                className="p-2"
+                disabled={!Boolean(t?.user?.username || t?.title)}
+              />
+            );
+          })}
         </div>
       </PopoverContent>
     </Popover>

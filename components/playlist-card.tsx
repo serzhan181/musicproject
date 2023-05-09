@@ -7,10 +7,23 @@ import { badgeVariants } from "./ui/badge";
 import { Copy, ScreenShare } from "lucide-react";
 import { SongCardProps } from "./song-card";
 import { SoundcloudTrackV2 } from "soundcloud.ts";
+import { PauseButton } from "./ui/pause-button";
 
-interface PlaylistCardProps extends Partial<SongCardProps> {
+interface PlaylistCardProps
+  extends Pick<
+    SongCardProps,
+    | "authorName"
+    | "thumbnailUrl"
+    | "title"
+    | "isPlaying"
+    | "onPause"
+    | "onPlay"
+    | "onPlaySong"
+    | "id"
+  > {
   firstTrack: SoundcloudTrackV2;
   tracksCount: number;
+  curPlaylistId?: number;
 }
 
 export const PlaylistCard = ({
@@ -19,6 +32,12 @@ export const PlaylistCard = ({
   title,
   firstTrack,
   tracksCount,
+  isPlaying,
+  onPause,
+  onPlay,
+  onPlaySong,
+  curPlaylistId,
+  id,
 }: PlaylistCardProps) => {
   return (
     <Card className="flex overflow-hidden">
@@ -33,7 +52,16 @@ export const PlaylistCard = ({
         </AspectRatio>
       </div>
       <div className="flex flex-col w-full gap-3 p-3">
-        <PlaylistHeader authorName={authorName} title={title} />
+        <PlaylistHeader
+          authorName={authorName}
+          title={title}
+          onStartPlaylist={() => onPlaySong(firstTrack.id)}
+          isPlaying={isPlaying}
+          onPause={onPause}
+          onPlay={onPlay}
+          curPlaylistId={curPlaylistId}
+          id={id}
+        />
 
         {firstTrack && (
           <div className="mt-auto space-y-1">
@@ -50,14 +78,38 @@ export const PlaylistCard = ({
   );
 };
 
+interface PlaylistHeaderProps
+  extends Pick<PlaylistCardProps, "title" | "authorName"> {
+  onStartPlaylist: () => void;
+  isPlaying: boolean;
+  onPause: () => void;
+  onPlay: () => void;
+  curPlaylistId?: number;
+  id: number;
+}
+
 const PlaylistHeader = ({
   authorName,
   title,
-}: Pick<PlaylistCardProps, "title" | "authorName">) => {
+  onStartPlaylist,
+  isPlaying,
+  onPlay,
+  onPause,
+  curPlaylistId,
+  id,
+}: PlaylistHeaderProps) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <PlayButton />
+        {curPlaylistId === id && isPlaying ? (
+          <PauseButton onClick={onPause} />
+        ) : (
+          <PlayButton
+            onClick={() =>
+              curPlaylistId !== id ? onStartPlaylist() : onPlay()
+            }
+          />
+        )}
         <div>
           <CardTitle className="text-2xl max-w-[450px] overflow-hidden whitespace-nowrap text-ellipsis">
             {title}
