@@ -18,6 +18,12 @@ export default async function PlaylistPage() {
           firstTrack={p.tracks[0]}
           tracksCount={p.track_count}
           id={p.id}
+          // TODO: Complete it
+          isPlaying={false}
+          onPause={() => {}}
+          onPlay={() => {}}
+          onPlaySong={() => {}}
+          curPlaylistId={0}
         />
       ))}
     </div>
