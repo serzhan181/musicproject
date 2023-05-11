@@ -2,7 +2,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default function PlaylistLoading() {
+export default function SearchLoading() {
   return (
     <div className="flex flex-col gap-3">
       {Array(8)

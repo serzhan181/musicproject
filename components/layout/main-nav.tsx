@@ -9,8 +9,8 @@ const navItems = {
   "/": {
     name: "Explore",
   },
-  "/playlists": {
-    name: "Playlists",
+  "/search": {
+    name: "Search",
   },
   "/lofi-live": {
     name: "Live lofi",
