@@ -43,13 +43,12 @@ export const Player = () => {
               setDuration(player.getDuration());
             }}
             onEnded={() => {
-              console.log("ID ENDED");
               dispatch(nextSong());
             }}
             progressInterval={100}
           />
           <motion.div
-            className="sticky bottom-0 left-0 right-0 py-1 transition-all border-t bg-secondary border-border"
+            className="fixed bottom-0 left-0 right-0 py-1 transition-all border-t bg-secondary border-border"
             initial={{ y: "100%" }}
             animate={{ y: "0" }}
             exit={{ y: "100%" }}
