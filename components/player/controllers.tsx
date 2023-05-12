@@ -13,6 +13,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "../ui/hover-card";
+import { Slider } from "../ui/slider";
 
 export interface ControllersProps {
   volume: number;
@@ -65,16 +66,13 @@ export const Controllers = ({
         </HoverCardTrigger>
 
         <HoverCardContent className="p-2 bg-secondary">
-          <span>
-            <input
-              type="range"
-              min={0}
-              max={1}
-              value={volume}
-              onChange={(e) => setVolume(+e.target.value)}
-              step={0.01}
-            />
-          </span>
+          <Slider
+            min={0}
+            max={1}
+            value={[volume]}
+            step={0.01}
+            onValueChange={(e) => setVolume(e[0])}
+          />
         </HoverCardContent>
       </HoverCard>
     </div>

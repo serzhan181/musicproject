@@ -13,6 +13,7 @@ specifiers:
   '@radix-ui/react-popover': ^1.0.5
   '@radix-ui/react-radio-group': ^1.1.2
   '@radix-ui/react-select': ^1.2.1
+  '@radix-ui/react-slider': ^1.1.1
   '@reduxjs/toolkit': ^1.9.5
   '@types/node': 18.15.11
   '@types/react': 18.0.37
@@ -55,6 +56,7 @@ dependencies:
   '@radix-ui/react-popover': 1.0.5_jf7puk66b2eiqxne3oe3xlxkou
   '@radix-ui/react-radio-group': 1.1.2_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-select': 1.2.1_jf7puk66b2eiqxne3oe3xlxkou
+  '@radix-ui/react-slider': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@reduxjs/toolkit': 1.9.5_k4ae6lp43ej6mezo3ztvx6pykq
   '@types/node': 18.15.11
   '@types/react': 18.0.37
@@ -894,6 +896,28 @@ packages:
       react-remove-scroll: 2.5.5_24ukasupqqblpyncii3ycicuiu
     transitivePeerDependencies:
       - '@types/react'
+    dev: false
+
+  /@radix-ui/react-slider/1.1.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0aswLpUKZIraPEOcXfwW25N1KPfLA6Mvm1TxogUChGsbLbys2ihd7uk9XAKsol9ZQPucxh2/mybwdRtAKrs/MQ==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.21.5
+      '@radix-ui/number': 1.0.0
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-collection': 1.0.2_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
+      '@radix-ui/react-context': 1.0.0_react@18.2.0
+      '@radix-ui/react-direction': 1.0.0_react@18.2.0
+      '@radix-ui/react-primitive': 1.0.2_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-previous': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-size': 1.0.0_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@radix-ui/react-slot/1.0.0_react@18.2.0:
