@@ -3,7 +3,7 @@ import { TracksSection } from "@/components/sections/tracks-section";
 import { sc } from "@/config/soundcloud";
 
 export default async function Home() {
-  const tracks = await sc.tracks.searchV2({ q: "phonk" });
+  const tracks = await sc.tracks.searchV2({ q: "Phonk" });
   const workoutTracks = await sc.tracks.searchV2({ q: "workout" });
   const chillTracks = await sc.tracks.searchV2({ q: "lofi|relax|jazz" });
   const playlists = await sc.playlists.searchV2({ q: "jazz", limit: 1 });
